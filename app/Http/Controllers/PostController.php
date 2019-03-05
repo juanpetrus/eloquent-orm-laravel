@@ -14,7 +14,48 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+//        $posts = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->get();
+//        foreach($posts as $post){
+//            echo "<h1>{$post->title}</h1>";
+//            echo "<h2>{$post->subtitle}</h2>";
+//            echo "<p>{$post->description}</p>";
+//            echo "<hr>";
+//        }
+
+//        $post = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->first();
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->description}</p>";
+//        echo "<hr>";
+
+//        $post = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->firstOrFail();
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->description}</p>";
+//        echo "<hr>";
+
+//        $post = Post::find(10);
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->description}</p>";
+//        echo "<hr>";
+
+//        $post = Post::findOrFail(10);
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->description}</p>";
+//        echo "<hr>";
+
+        // max - min - sun - count -avg
+//        $posts = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->max('title');
+//        foreach($posts as $post){
+//            echo "<h1>{$post->title}</h1>";
+//            echo "<h2>{$post->subtitle}</h2>";
+//            echo "<p>{$post->description}</p>";
+//            echo "<hr>";
+//        }
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
     /**

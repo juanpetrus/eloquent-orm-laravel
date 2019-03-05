@@ -13,12 +13,14 @@
 
 <div class="container my-5">
     <section class="articles_list">
+        @foreach($posts as $post)
         <article class="mb-5">
-            <h1>Título</h1>
-            <h2>Subtítulo</h2>
-            <p>Descrição</p>
-            <small>Criado em: - Editado em: </small>
+            <h1>{{$post->title}}</h1>
+            <h2>{{$post->subtitle}}</h2>
+            <p>{{$post->description}}</p>
+            <small>Criado em: {{ date('d/m/Y H:i', strtotime($post->created_at)) }} - Editado em: {{ date('d/m/Y H:i', strtotime($post->updated_at)) }}</small>
         </article>
+        @endforeach
         <hr>
     </section>
 
