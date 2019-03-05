@@ -12,6 +12,7 @@
 <body>
 
 <div class="container my-5">
+    <a href="{{ route('posts.create') }}" class="btn btn-primary mb-5">Cadastrar novo artigo</a>
     <section class="articles_list">
         @foreach($posts as $post)
         <article class="mb-5">

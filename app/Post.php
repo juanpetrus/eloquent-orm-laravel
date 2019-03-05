@@ -11,4 +11,7 @@ class Post extends Model
 
     public  $timestamps = true;
 
+    protected $fillable = ['title', 'subtitle', 'description'];
+    protected $guarded = [];
+
 }
