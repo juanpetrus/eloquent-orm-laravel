@@ -26,24 +26,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="17" />
+          <entry key="php" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="4" />
+          <entry key="Blade" value="5" />
           <entry key="PHP" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="1452" />
+          <entry key="php" value="1972" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="252" />
-          <entry key="PHP" value="1200" />
+          <entry key="Blade" value="400" />
+          <entry key="PHP" value="1572" />
         </counts>
       </usages-collector>
     </session>
@@ -80,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+            <state relative-caret-position="579">
+              <caret line="233" column="45" selection-start-line="233" selection-start-column="45" selection-end-line="233" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -90,7 +90,16 @@
         <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+              <caret line="22" column="110" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/posts/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -116,9 +125,10 @@
         <option value="$PROJECT_DIR$/database/seeds/PostTableSeeder.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_03_202041_create_posts_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/posts/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Post.php" />
+        <option value="$PROJECT_DIR$/resources/views/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/posts/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PostController.php" />
       </list>
     </option>
@@ -277,10 +287,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\laravel\orm-laravel\app\Http\Controllers" />
+      <recent name="C:\wamp64\www\laravel\orm-laravel\resources\views\posts" />
       <recent name="C:\wamp64\www\laravel\orm-laravel\database\seeds" />
       <recent name="C:\wamp64\www\laravel\orm-laravel\database\factories" />
       <recent name="C:\wamp64\www\laravel\orm-laravel\database\migrations" />
-      <recent name="C:\wamp64\www\laravel\orm-laravel\resources\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -305,12 +316,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551726451965</updated>
-      <workItem from="1551726454177" duration="10863000" />
+      <workItem from="1551726454177" duration="14788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10863000" />
+    <option name="totallyTimeSpent" value="14788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -340,9 +351,9 @@
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.18599562" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.18599562" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2354874" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.2354874" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
@@ -446,14 +457,21 @@
     <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <caret line="22" column="110" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/posts/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+        <state relative-caret-position="579">
+          <caret line="233" column="45" selection-start-line="233" selection-start-column="45" selection-end-line="233" selection-end-column="45" />
         </state>
       </provider>
     </entry>
