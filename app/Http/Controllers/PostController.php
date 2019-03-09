@@ -7,6 +7,40 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+      /**
+     * Quando se usa softDeletes deve-se atentar aos seguintes itens
+     * Campo na tabela: Através da migration você pode invocar o $table->softDeletes();
+     * Leitura: Você pode optar por 3 formatos
+     *      Post::all() Retorna o coletivo de artigos válidos (não exclusos)
+     *      Post::onlyTrashed()->get() Retorna o coletivo de artigos que foram marcados como exclusos
+     *      Post::withTrashed()->get() Retorna o coletivo de todos os artigos (exclusos e não exclusos)
+     *
+     * Remoção da base: forceDelete()
+     * Restauração do registro: restore()
+     */
+
+    public function forceDelete($post)
+    {
+        Post::onlyTrashed()->where(['id' => $post])->forceDelete();
+        return redirect()->route('posts.trashed');
+    }
+
+    public function restore($post)
+    {
+        $post = Post::onlyTrashed()->where(['id' => $post])->first();
+
+        if($post->trashed()){
+            $post->restore();
+        }
+
+        return redirect()->route('posts.trashed');
+    }
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+        return view('posts.trashed', ['posts' => $posts]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -214,22 +248,38 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        /**
+         * Object Prop Save
+         * Nesse caso não é necessário instanciar o objeto, porque o parâmetro do método já é o próprio modelo
+         * Você pode omitir a instância ou ainda alimentar novamente a variável post utilizando o método find()
+         * Faz o uso do método save() no final para persistir os dados dentro do banco de dados
+         */
+        //$post = new Post; // não se deve utilizar a instância
         $post = Post::find($post->id);
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->description = $request->description;
         $post->save();
 
+        /**
+         * Assim como você tem o firstOrCreate que busca um registro e caso não encontre ele cria um novo no banco de dados,
+         * o updateOrCreate tem basicamente a mesma responsabilidade... Mas ele vai buscar um registro, se não tiver ele cria,
+         * e se já exisitir ele atualiza os dados
+         * Não é necessário fazer o uso do método save() para persistir as informações
+         */
 //        $post = Post::updateOrCreate([
-//           'title' => 'teste',
-//           'subtitle' => 'teste',
-//           'description' => 'teste'
+//            'title' => 'teste5'
+//        ],[
+//            'subtitle' => 'teste6',
+//            'description' => 'teste6'
 //        ]);
 
-//        Post::where('created_at', '>=', date('Y-m-d H:i:s'))->update([
-//            'description' => 'teste'
-//        ]);
-        //var_dump($posts);
+        /**
+         * Atualização em massa
+         * Informe a query builder com um coletivo de registros e passe o método update encadeado com um array associativo
+         * O array deve conter o nome do campo e o respectivo valor
+         */
+//        Post::where('created_at', '>=', date('Y-m-d H:i:s'))->update(['description' => 'teste']);
 
         return redirect()->route('posts.index');
     }
@@ -242,6 +292,27 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+          /**
+         * Cria uma nova instância e deleta o registro
+         */
+//        Post::find($post->id)->delete();
+
+        /**
+         * Deleta vários registros
+         */
+//        Post::destroy([2, 3]);
+
+        /**
+         * Deleta o registro informado (que pode ou não ser o recebido pelo modelo)
+         */
+        Post::destroy($post->id);
+
+        /**
+         * Deleção de registros em massa
+         * Utilize o query Builder para retornar uma coleção de modelos e use o método delete()
+         */
+//        Post::where('created_at', '>=', date('Y-m-d H:i:s'))->delete();
+
+        return redirect()->route('posts.index');
     }
 }
